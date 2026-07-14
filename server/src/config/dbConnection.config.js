@@ -7,7 +7,7 @@ const dbConnection = async () => {
         console.log("Mongo DB connected");
         console.log("DB Host" , conn.connection.host);
         console.log("DB Host" , conn.connection.name);
-         
+          
         
      } catch(error) {
         console.log(error.message);
