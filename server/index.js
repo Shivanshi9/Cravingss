@@ -7,6 +7,7 @@ import AuthRouter from "./src/routers/auth.router.js";
 import PublicRouter from './src/routers/public.router.js';
 import UserRouter from './src/routers/user.route.js';
 import ContactRouter from "./src/routers/public.router.js";
+import RestaurantRouter from "./src/routers/restaurant.route.js";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from 'cookie-parser';
@@ -24,7 +25,9 @@ app.use("/auth",AuthRouter);
 app.use("/public",PublicRouter);
 app.use("/contact", ContactRouter);
 app.use("/user", UserRouter);
+app.use("/restaurant", RestaurantRouter);
 app.use("/uploads", express.static("uploads"));
+
 
 //routes default api
 app.get("/",(req,res)=>{

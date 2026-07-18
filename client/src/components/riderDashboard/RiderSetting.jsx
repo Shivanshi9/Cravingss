@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { MdEdit } from "react-icons/md";
-import { MdOutlineLockReset } from "react-icons/md";
 import { useAuth } from "../../context/AuthContext";
 import api from "../../config/ApiConfig";
 import toast from "react-hot-toast";
-import { MdOutlineAddAPhoto } from "react-icons/md";
+import { MdOutlineAddAPhoto ,MdOutlineLockReset } from "react-icons/md";
 import PasswordChangeModal from "../commonModals/PasswordChangeModal";
 
-const AdminSetting = () => {
+const RiderSetting = () => {
   const { user, setUser } = useAuth();
   const [editingProfile, setEditingProfile] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
@@ -39,7 +38,7 @@ const AdminSetting = () => {
 
       payload.append("displayPic", profilePic);
 
-      const response = await api.put(`/common/edit-profile`, payload);
+      const response = await api.put(`/user/edit-profile`, payload);
 
       setUser(response.data.data);
       sessionStorage.setItem("cravingUser", JSON.stringify(response.data.data));
@@ -196,4 +195,4 @@ const AdminSetting = () => {
   );
 };
 
-export default AdminSetting;
+export default RiderSetting;
